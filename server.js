@@ -1,10 +1,10 @@
-// node‚ÌƒRƒAƒ‚ƒWƒ…[ƒ‹‚Ìhttp‚ğg‚¤
+// nodeã®ã‚³ã‚¢ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã®httpã‚’ä½¿ã†
 var http = require('http');
 var server = http.createServer();
 
 server.on('request', function(req, res) {
-    res.writeHead(200, {'Content-Type' : 'text/plain'});
-    // ƒŠƒNƒGƒXƒg‚³‚ê‚½ˆ—‚É‚æ‚è•\¦“à—e‚ğ•ª‚¯‚Ä‚İ‚é
+    res.writeHead(200, {'Content-Type' : 'text/html'});
+    // ãƒªã‚¯ã‚¨ã‚¹ãƒˆã•ã‚ŒãŸå‡¦ç†ã«ã‚ˆã‚Šè¡¨ç¤ºå†…å®¹ã‚’åˆ†ã‘ã¦ã¿ã‚‹
     switch (req.url) {
         case '/about':
             msg = 'welcome about page';
@@ -13,16 +13,16 @@ server.on('request', function(req, res) {
             msg = 'welcome my company page';
             break;
         default:
-            msg = 'page not found';
+            msg = '<span style="color:blue;"><b>node js</b></span><br>';
             break;
     }
     res.write(msg + "\n");
     res.write('hello world\n');
-    res.write('request from: ' + req.url);
+    res.write('<br><b>request from:</b> ' + req.url);
     res.end();
 });
 
-// ƒT[ƒo‚ğ‘Ò‚¿ó‚¯ó‘Ô‚É‚·‚é
-// ‘æ1ˆø”: ƒ|[ƒg”Ô†
-// ‘æ2ˆø”: IPƒAƒhƒŒƒX
+// ã‚µãƒ¼ãƒã‚’å¾…ã¡å—ã‘çŠ¶æ…‹ã«ã™ã‚‹
+// ç¬¬1å¼•æ•°: ãƒãƒ¼ãƒˆç•ªå·
+// ç¬¬2å¼•æ•°: IPã‚¢ãƒ‰ãƒ¬ã‚¹
 server.listen(3000);
